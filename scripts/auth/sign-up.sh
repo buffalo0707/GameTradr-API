@@ -2,6 +2,9 @@
 
 API="http://localhost:4741"
 URL_PATH="/sign-up"
+EMAIL='test@test.com'
+PASSWORD='test'
+NAME='Testy Testerson'
 
 curl "${API}${URL_PATH}" \
   --include \
@@ -11,7 +14,8 @@ curl "${API}${URL_PATH}" \
     "credentials": {
       "email": "'"${EMAIL}"'",
       "password": "'"${PASSWORD}"'",
-      "password_confirmation": "'"${PASSWORD}"'"
+      "password_confirmation": "'"${PASSWORD}"'",
+      "name": "'"${NAME}"'"
     }
   }'
 
