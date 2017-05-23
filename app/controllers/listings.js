@@ -35,14 +35,28 @@ const create = (req, res, next) => {
         }))
     .catch(next)
 }
+const update = (req, res, next) => {
+  delete req.body._owner  // disallow owner reassignment.
+  req.listing.update(req.body.listing)
+    .then(() => res.sendStatus(204))
+    .catch(next)
+}
+
+const destroy = (req, res, next) => {
+  req.listing.remove()
+    .then(() => res.sendStatus(204))
+    .catch(next)
+}
 
 module.exports = controller({
   index,
   show,
-  create
+  create,
+  update,
+  destroy
 }, { before: [
   // { method: setUser, only: ['index', 'show'] },
   { method: authenticate, except: ['index', 'show'] },
-  { method: setModel(Listing), only: ['show'] }
-  // { method: setModel(Listing, { forUser: true }), only: ['update', 'destroy'] }
+  { method: setModel(Listing), only: ['show'] },
+  { method: setModel(Listing, { forUser: true }), only: ['update', 'destroy'] }
 ] })
