@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose')
 
-const tradeSchema = new mongoose.Schema({
+const listingSchema = new mongoose.Schema({
   _owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
@@ -47,6 +47,6 @@ const tradeSchema = new mongoose.Schema({
   }
 })
 
-const Trade = mongoose.model('Trade', tradeSchema)
+const Listing = mongoose.model('Listing', listingSchema)
 
-module.exports = Trade
+module.exports = Listing

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 API="http://localhost:4741"
-URL_PATH="/trades"
+URL_PATH="/listings"
 TOKEN="er4H7palCQtm1HPRYsscEuHddDTVNP5etRVvsOyyrV8=--dqwjduxeLgnZ4h1+UK536wEMHwesVxWECA3oS097FiY="
 NAME="TestGame"
 SYSTEM="PS4"
@@ -15,7 +15,7 @@ curl "${API}${URL_PATH}" \
   --header "Content-Type: application/json" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
-    "trade": {
+    "listing": {
       "game": {
         "name": "'"${NAME}"'",
         "system": "'"${SYSTEM}"'"

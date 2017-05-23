@@ -2,16 +2,16 @@
 
 const controller = require('lib/wiring/controller')
 const models = require('app/models')
-const Trade = models.trade
+const Listing = models.listing
 
 const authenticate = require('./concerns/authenticate')
 // const setUser = require('./concerns/set-current-user')
 const setModel = require('./concerns/set-mongoose-model')
 
 const index = (req, res, next) => {
-  Trade.find()
-    .then(trades => res.json({
-      trades: trades.map((e) =>
+  Listing.find()
+    .then(listings => res.json({
+      listings: listings.map((e) =>
         e.toJSON({ virtuals: true, user: req.user }))
     }))
     .catch(next)
@@ -19,19 +19,19 @@ const index = (req, res, next) => {
 
 const show = (req, res) => {
   res.json({
-    trade: req.trade.toJSON({ virtuals: true, user: req.user })
+    listing: req.listing.toJSON({ virtuals: true, user: req.user })
   })
 }
 
 const create = (req, res, next) => {
-  const trade = Object.assign(req.body.trade, {
+  const listing = Object.assign(req.body.listing, {
     _owner: req.user._id
   })
-  Trade.create(trade)
-    .then(trade =>
+  Listing.create(listing)
+    .then(listing =>
       res.status(201)
         .json({
-          trade: trade.toJSON({ virtuals: true, user: req.user })
+          listing: listing.toJSON({ virtuals: true, user: req.user })
         }))
     .catch(next)
 }
@@ -43,6 +43,6 @@ module.exports = controller({
 }, { before: [
   // { method: setUser, only: ['index', 'show'] },
   { method: authenticate, except: ['index', 'show'] },
-  { method: setModel(Trade), only: ['show'] }
-  // { method: setModel(Trade, { forUser: true }), only: ['update', 'destroy'] }
+  { method: setModel(Listing), only: ['show'] }
+  // { method: setModel(Listing, { forUser: true }), only: ['update', 'destroy'] }
 ] })
