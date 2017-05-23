@@ -15,7 +15,9 @@ const tradeSchema = new mongoose.Schema({
     },
     system: {
       type: String,
-      required: true
+      required: true,
+      enum: ['PS4', 'Xbox One', 'Switch', 'WiiU', 'Wii', 'Xbox 360', 'PS3', 'PS2', 'Xbox', 'Nindento DS', 'Nintendo 3DS'],
+
     }
   },
   lookingFor: [{
@@ -25,7 +27,8 @@ const tradeSchema = new mongoose.Schema({
     },
     system: {
       type: String,
-      required: true
+      required: true,
+      enum: ['PS4', 'Xbox One', 'Switch', 'WiiU', 'Wii', 'Xbox 360', 'PS3', 'PS2', 'Xbox', 'Nindento DS', 'Nintendo 3DS'],
     }
   }],
   status: {
