@@ -2,13 +2,13 @@
 
 API="http://localhost:4741"
 URL_PATH="/listings"
-TOKEN="er4H7palCQtm1HPRYsscEuHddDTVNP5etRVvsOyyrV8=--dqwjduxeLgnZ4h1+UK536wEMHwesVxWECA3oS097FiY="
+TOKEN="2FUvZWrBtBOEeVbwubixaCQVzLp1V+bNcy3XcpoP9iU=--bA24VfhwaQLaVCcsc0ytnloCAEjxUNgzKmGscF8tzs0="
 NAME="TestGame"
 SYSTEM="PS4"
 NAME2="NewGame"
 SYSTEM2="PS4"
 NAME3="OtherNewGame"
-SYSTEM3="Xbone"
+SYSTEM3="Xbox One"
 curl "${API}${URL_PATH}" \
   --include \
   --request POST \
