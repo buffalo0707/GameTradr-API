@@ -10,7 +10,7 @@ module.exports = require('lib/wiring/routes')
 // standards RESTful routes
 .resources('examples')
 .resources('listings')
-.resources('trades')
+.resources('trades', { only: ['index', 'show', 'create'] })
 
 // users of the app have special requirements
 .post('/sign-up', 'users#signup')

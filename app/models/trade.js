@@ -33,6 +33,6 @@ const listingSchema = new mongoose.Schema({
   }
 })
 
-const Listing = mongoose.model('Listing', listingSchema)
+const Trade = mongoose.model('Trade', listingSchema)
 
-module.exports = Listing
+module.exports = Trade
