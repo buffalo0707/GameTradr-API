@@ -24,7 +24,10 @@ const show = (req, res) => {
 }
 
 const create = (req, res, next) => {
-  Trade.create(req.body.trade)
+  const trade = Object.assign(req.body.trade, {
+    _owner: req.user._id
+  })
+  Trade.create(trade)
     .then(trade =>
       res.status(201)
         .json({
