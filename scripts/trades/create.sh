@@ -7,6 +7,8 @@ NAME="TestGame"
 SYSTEM="PS4"
 NAME2="NewGame"
 SYSTEM2="PS4"
+NAME3="OtherNewGame"
+SYSTEM3="Xbone"
 curl "${API}${URL_PATH}" \
   --include \
   --request POST \
@@ -14,13 +16,17 @@ curl "${API}${URL_PATH}" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
     "trade": {
-      "gameForTrade": {
+      "game": {
         "name": "'"${NAME}"'",
         "system": "'"${SYSTEM}"'"
       },
       "lookingFor": [{
         "name": "'"${NAME2}"'",
         "system": "'"${SYSTEM2}"'"
+      },
+      {
+        "name": "'"${NAME3}"'",
+        "system": "'"${SYSTEM3}"'"
       }],
       "status": "active"
     }

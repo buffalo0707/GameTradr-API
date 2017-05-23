@@ -8,7 +8,7 @@ const tradeSchema = new mongoose.Schema({
     ref: 'User',
     required: true
   },
-  gameForTrade: {
+  game: {
     name: {
       type: String,
       required: true
