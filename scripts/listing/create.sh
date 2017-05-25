@@ -2,13 +2,13 @@
 
 API="http://localhost:4741"
 URL_PATH="/listings"
-TOKEN="2FUvZWrBtBOEeVbwubixaCQVzLp1V+bNcy3XcpoP9iU=--bA24VfhwaQLaVCcsc0ytnloCAEjxUNgzKmGscF8tzs0="
-NAME="TestGame"
-SYSTEM="PS4"
-NAME2="NewGame"
-SYSTEM2="PS4"
-NAME3="OtherNewGame"
-SYSTEM3="Xbox One"
+TOKEN="PlPAxFXop8opF3IyXa3J1BM+HWn9T9SvIvBaRRt6PzY=--dmSlqbPy4iJY9Sknod1bA8gWOZxHQ5hh3aJEz5yIdqk="
+NAME="Halo"
+SYSTEM="Xbox"
+NAME2="ThisThing"
+SYSTEM2="Wii"
+NAME3="WhoKnows"
+SYSTEM3="WiiU"
 curl "${API}${URL_PATH}" \
   --include \
   --request POST \

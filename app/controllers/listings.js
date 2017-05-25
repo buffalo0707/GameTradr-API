@@ -9,7 +9,14 @@ const authenticate = require('./concerns/authenticate')
 const setModel = require('./concerns/set-mongoose-model')
 
 const index = (req, res, next) => {
-  Listing.find()
+  let query = {}
+  if (Object.keys(req.query).length > 0) {
+    query = {lookingFor:{$elemMatch: {name: req.query.name, system: req.query.system}}}
+  }
+  console.log('req is', req);
+  console.log('req.query.listing is', req.query);
+  console.log('index query is', query);
+  Listing.find(query)
     .then(listings => res.json({
       listings: listings.map((e) =>
         e.toJSON({ virtuals: true, user: req.user }))
