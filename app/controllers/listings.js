@@ -13,15 +13,31 @@ const index = (req, res, next) => {
   if (Object.keys(req.query).length > 0) {
     query = {lookingFor:{$elemMatch: {name: req.query.name, system: req.query.system}}}
   }
-  console.log('req is', req);
-  console.log('req.query.listing is', req.query);
-  console.log('index query is', query);
   Listing.find(query)
     .then(listings => res.json({
       listings: listings.map((e) =>
         e.toJSON({ virtuals: true, user: req.user }))
     }))
     .catch(next)
+}
+const match = (req, res, next) => {
+  console.log(req.listing.lookingFor);
+  Listing.find({
+    lookingFor: {
+      $elemMatch: {
+        name: req.listing.game.name,
+        system: req.listing.game.system
+      }
+    },
+    game: {
+      $in: req.listing.lookingFor
+    }
+  })
+  .then(listings => res.json({
+    listings: listings.map((e) =>
+      e.toJSON({ virtuals: true, user: req.user }))
+  }))
+  .catch(next)
 }
 
 const show = (req, res) => {
@@ -60,10 +76,11 @@ module.exports = controller({
   show,
   create,
   update,
-  destroy
+  destroy,
+  match
 }, { before: [
   // { method: setUser, only: ['index', 'show'] },
-  { method: authenticate, except: ['index', 'show'] },
-  { method: setModel(Listing), only: ['show'] },
+  { method: authenticate, except: ['index', 'show', 'match'] },
+  { method: setModel(Listing), only: ['show','match'] },
   { method: setModel(Listing, { forUser: true }), only: ['update', 'destroy'] }
 ] })

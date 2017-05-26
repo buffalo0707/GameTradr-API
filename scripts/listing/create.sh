@@ -2,11 +2,11 @@
 
 API="http://localhost:4741"
 URL_PATH="/listings"
-TOKEN="PlPAxFXop8opF3IyXa3J1BM+HWn9T9SvIvBaRRt6PzY=--dmSlqbPy4iJY9Sknod1bA8gWOZxHQ5hh3aJEz5yIdqk="
-NAME="Halo"
-SYSTEM="Xbox"
-NAME2="ThisThing"
-SYSTEM2="Wii"
+TOKEN="d65DdMalAUIDWk4jhAhRyEcqKqkVF25d1ei+KT8CRnQ=--aHQHV2uU+A+mDfFmS2l6+QX7MrK36/yk1xiGZkEzlqc="
+NAME="ThisThing"
+SYSTEM="Wii"
+NAME2="Halo"
+SYSTEM2="Xbox"
 NAME3="WhoKnows"
 SYSTEM3="WiiU"
 curl "${API}${URL_PATH}" \

@@ -20,6 +20,7 @@ const listingSchema = new mongoose.Schema({
     }
   },
   lookingFor: [{
+    _id:false,
     name: {
       type: String,
       required: true

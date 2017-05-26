@@ -11,6 +11,7 @@ module.exports = require('lib/wiring/routes')
 .resources('examples')
 .resources('listings')
 .resources('trades', { only: ['index', 'show', 'create'] })
+.get('/match/:id', 'listings#match')
 
 // users of the app have special requirements
 .post('/sign-up', 'users#signup')
