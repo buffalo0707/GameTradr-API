@@ -2,15 +2,17 @@
 
 const controller = require('lib/wiring/controller')
 const getGames = require('../../lib/gameAPI')
-
-const unirest = require('unirest');
+const parser = require('xml2json')
 
 
 const index = (req, res, next) => {
-  getGames()
-  .then(uploads => res.json({
-    uploads: uploads
-  }))
+  const query = "Horizon Zero Dawn"
+  getGames(query)
+  .then((games) => {
+    const result = parser.toJson(games)
+    res.set('Content-Type', 'application/json');
+    res.send(result)
+  })
   .catch(next)
 }
 
