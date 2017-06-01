@@ -6,7 +6,12 @@ const parser = require('xml2json')
 
 
 const index = (req, res, next) => {
-  const query = "Horizon Zero Dawn"
+  console.log(req.query);
+  let query = `?name=${req.query.name}`
+  console.log(query);
+  if (req.query.platform) {
+    query += `&platform=${req.query.platform}`
+  }
   getGames(query)
   .then((games) => {
     const result = parser.toJson(games)
