@@ -12,6 +12,8 @@ module.exports = require('lib/wiring/routes')
 .resources('listings')
 .resources('trades', { only: ['index', 'show', 'create'] })
 .get('/match/:id', 'listings#match')
+.resources('games', {only: ['index']})
+
 
 // users of the app have special requirements
 .post('/sign-up', 'users#signup')
