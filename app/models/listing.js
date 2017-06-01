@@ -19,8 +19,8 @@ const listingSchema = new mongoose.Schema({
       enum: ['PS4', 'Xbox One', 'Switch', 'WiiU', 'Wii', 'Xbox 360', 'PS3', 'PS2', 'Xbox', 'Nindento DS', 'Nintendo 3DS']
     }
   },
-  lookingFor: [{
-    _id:false,
+  wanted: [{
+    _id: false,
     name: {
       type: String,
       required: true

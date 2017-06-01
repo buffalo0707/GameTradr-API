@@ -2,7 +2,7 @@
 
 API="http://localhost:4741"
 URL_PATH="/listings"
-TOKEN="d65DdMalAUIDWk4jhAhRyEcqKqkVF25d1ei+KT8CRnQ=--aHQHV2uU+A+mDfFmS2l6+QX7MrK36/yk1xiGZkEzlqc="
+TOKEN="VTFxkxZoAaNRQMiOlkwD2K9s2Tm4I+Id12WBvmWCUwI=--d/K+NWW9C/uMUoSg1Kt5wEPUY1+j3VfzvLHXb8f5O+k="
 NAME="ThisThing"
 SYSTEM="Wii"
 NAME2="Halo"
@@ -20,7 +20,7 @@ curl "${API}${URL_PATH}" \
         "name": "'"${NAME}"'",
         "system": "'"${SYSTEM}"'"
       },
-      "lookingFor": [{
+      "wanted": [{
         "name": "'"${NAME2}"'",
         "system": "'"${SYSTEM2}"'"
       },
