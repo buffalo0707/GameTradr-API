@@ -19,8 +19,7 @@ const listingSchema = new mongoose.Schema({
       enum: ['PS4', 'Xbox One', 'Switch', 'WiiU', 'Wii', 'Xbox 360', 'PS3', 'PS2', 'Xbox', 'Nindento DS', 'Nintendo 3DS']
     }
   },
-  wanted: [{
-    _id: false,
+  wanted: {
     name: {
       type: String,
       required: true
@@ -30,7 +29,7 @@ const listingSchema = new mongoose.Schema({
       required: true,
       enum: ['PS4', 'Xbox One', 'Switch', 'WiiU', 'Wii', 'Xbox 360', 'PS3', 'PS2', 'Xbox', 'Nindento DS', 'Nintendo 3DS']
     }
-  }],
+  },
   status: {
     enum: ['active', 'completed'],
     type: String,

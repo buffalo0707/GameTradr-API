@@ -23,15 +23,18 @@ const index = (req, res, next) => {
 const match = (req, res, next) => {
   console.log(req.listing.lookingFor);
   Listing.find({
-    lookingFor: {
+    game: {
       $elemMatch: {
         name: req.listing.game.name,
         system: req.listing.game.system
       }
     },
-    game: {
-      $in: req.listing.lookingFor
-    }
+    wanted: {
+      $elemMatch: {
+        name: req.listing.wanted.name,
+        system: req.listing.wanted.system
+      }
+    },
   })
   .then(listings => res.json({
     listings: listings.map((e) =>
