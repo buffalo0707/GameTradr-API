@@ -45,7 +45,7 @@ const makeErrorHandler = (res, next) =>
     : next(error)
 
 const signup = (req, res, next) => {
-  const user = req.body.credentials
+  const user = req.body
   getToken()
     .then(token => {
       user.token = token
@@ -58,7 +58,8 @@ const signup = (req, res, next) => {
 }
 
 const signin = (req, res, next) => {
-  const credentials = req.body.credentials
+  const credentials = req.body
+  console.log(credentials);
   const search = { email: credentials.email }
   User.findOne(search)
     .then(user =>
@@ -79,6 +80,7 @@ const signin = (req, res, next) => {
 }
 
 const signout = (req, res, next) => {
+  console.log(req.headers);
   getToken().then(token =>
     User.findOneAndUpdate({
       _id: req.params.id,
@@ -97,10 +99,10 @@ const changepw = (req, res, next) => {
     _id: req.params.id,
     token: req.user.token
   }).then(user =>
-    user ? user.comparePassword(req.body.passwords.old)
+    user ? user.comparePassword(req.body.old)
       : Promise.reject(new HttpError(404))
   ).then(user => {
-    user.password = req.body.passwords.new
+    user.password = req.body.new
     return user.save()
   }).then((/* user */) =>
     res.sendStatus(204)
