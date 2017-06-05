@@ -2,17 +2,16 @@
 
 # GameTradr
 
-A template for starting projects with `express` as an API. Includes
-authentication and common middlewares.
+API for use with GameTradr Client
 
-At the beginning of each cohort, update the versions in
-[`package.json`](package.json) by replace all versions with a glob (`*`) and
-running `npm update --save && npm update --save-dev`. You may wish to test these
-changes by deleting the `node_modules` directory and running `npm install`.
-Fix any conflicts.
+## URLS
+API:
+-Deployed: https://sleepy-dawn-70018.herokuapp.com/
+-Repo: https://github.com/buffalo0707/GameTradr-API
 
-This template follows Rails-like conventions for organizing controller and
-model code, and has a routing layer which is similar to the Rails routing DSL.
+Client:
+-Deployed: https://buffalo0707.github.io/GameTradr-Client/home
+-Repo: https://github.com/buffalo0707/GameTradr-Client
 
 ## Dependencies
 
@@ -20,39 +19,11 @@ Install with `npm install`.
 
 -   [`express`](http://expressjs.com/)
 -   [`mongoose`](http://mongoosejs.com/)
+-   [`unirest`](http://unirest.io/)
+-   [`xml2json`](https://www.npmjs.com/package/xml2json)
 
-At the beginning of each cohort, update the versions in
-[`package.json`](package.json) by replace all versions with a glob (`*`) and
-running `npm update --save && npm update --save-dev`. You may wish to test these
-changes by deleting the `node_modules` directory and running `npm install`.
-Fix any conflicts.
-
-## Installation
-
-1.  [Download](../../archive/master.zip) this template.
-1.  Unzip and rename the template directory.
-1.  Empty [`README.md`](README.md) and fill with your own content.
-1.  Move into the new project and `git init`.
-1.  Replace all instances of `'GameTradr'` with your app name. This
-    includes `package.json`, various debugger configurations, and the MongoDB
-    store.
-1.  Install dependencies with `npm install`.
-1.  Set a SECRET_KEY in the environment.
-1.  Run the API server with `npm start`. If you want your code to be reloaded on
-    change, you should `npm install -g nodemon` and use `nodemon` instead of
-    `npm start`.
-1.  Once everything is working, make an initial commit.
-
-For development and testing, set the SECRET_KEY from the root of your
- repository using
-
-```sh
-echo SECRET_KEY=$(/usr/local/opt/openssl/bin/openssl rand -base64 66 | tr -d '\n') >>.env
-```
-
-In order to make requests from your deployed client application, you will need
-to set `CLIENT_ORIGIN` in the environment (e.g. `heroku config:set
-CLIENT_ORIGIN=https://<github-username>.github.io`).
+## ERD
+- [`ERD`](https://goo.gl/photos/ZF3E5LSiCTxq38Qf8)
 
 ## Structure
 
@@ -67,15 +38,6 @@ object stored in the `grunt` directory.
 Developers should store JavaScript files in [`app/controllers`](app/controllers)
  and [`app/models`](app/models).
 Routes are stored in [`config/routes.js`](config/routes.js)
-
-## Tasks
-
-Developers should run these often!
-
--   `grunt nag` or just `grunt`: runs code quality analysis tools on your code
-    and complains
--   `grunt reformat`: reformats all your code in a standard style
--   `grunt test`: runs any automated tests
 
 ## API
 
