@@ -50,9 +50,10 @@ const show = (req, res) => {
 }
 
 const create = (req, res, next) => {
-  const listing = Object.assign(req.body.listing, {
+  const listing = Object.assign(req.body, {
     _owner: req.user._id
   })
+  console.log(listing);
   Listing.create(listing)
     .then(listing =>
       res.status(201)

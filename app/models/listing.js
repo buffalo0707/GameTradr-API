@@ -33,7 +33,8 @@ const listingSchema = new mongoose.Schema({
   status: {
     enum: ['active', 'completed'],
     type: String,
-    required: true
+    required: true,
+    default: 'active'
   }
 }, {
   timestamps: true,
