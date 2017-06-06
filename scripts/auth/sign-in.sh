@@ -2,7 +2,7 @@
 
 API="http://localhost:4741"
 URL_PATH="/sign-in"
-EMAIL='test3@test.com'
+EMAIL='test30@test.com'
 PASSWORD='test'
 
 curl "${API}${URL_PATH}" \
@@ -10,10 +10,8 @@ curl "${API}${URL_PATH}" \
   --request POST \
   --header "Content-Type: application/json" \
   --data '{
-    "credentials": {
       "email": "'"${EMAIL}"'",
       "password": "'"${PASSWORD}"'"
-    }
   }'
 
 echo
