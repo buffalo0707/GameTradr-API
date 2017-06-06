@@ -18,7 +18,7 @@ const listingSchema = new mongoose.Schema({
       required: true
       }
   },
-  wanted: {
+  wanted: [{
     name: {
       type: String,
       required: true
@@ -27,7 +27,7 @@ const listingSchema = new mongoose.Schema({
       type: String,
       required: true
     }
-  },
+  }],
   status: {
     enum: ['active', 'completed'],
     type: String,
