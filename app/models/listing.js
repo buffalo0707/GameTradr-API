@@ -16,6 +16,10 @@ const listingSchema = new mongoose.Schema({
     system: {
       type: String,
       required: true
+    },
+    id: {
+      type: Number,
+      required: true
       }
   },
   wanted: [{
@@ -26,7 +30,12 @@ const listingSchema = new mongoose.Schema({
     system: {
       type: String,
       required: true
-    }
+    },
+    ,
+    id: {
+      type: Number,
+      required: true
+      }
   }],
   status: {
     enum: ['active', 'completed'],
