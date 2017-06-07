@@ -5,13 +5,14 @@ const models = require('app/models')
 const Listing = models.listing
 
 const authenticate = require('./concerns/authenticate')
-// const setUser = require('./concerns/set-current-user')
+const setUser = require('./concerns/set-current-user')
 const setModel = require('./concerns/set-mongoose-model')
 
 const index = (req, res, next) => {
   let query = {}
-  if (Object.keys(req.query).length > 0) {
-    query = {lookingFor:{$elemMatch: {name: req.query.name, system: req.query.system}}}
+  if (req.query.owner) {
+    query = {_owner: req.query.owner}
+    console.log(req.query.owner);
   }
   Listing.find(query)
     .then(listings => res.json({
