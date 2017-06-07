@@ -20,6 +20,7 @@ const setUser = function (req, res, next) {
     const token = decodeToken(signedToken)
     User.findOne({ token })
       .then(user => {
+
         req.user = user
         next()
       })

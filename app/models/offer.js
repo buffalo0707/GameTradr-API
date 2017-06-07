@@ -8,6 +8,11 @@ const offerSchema = new mongoose.Schema({
     ref: 'User',
     required: true
   },
+  _listing:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Listing',
+    required: true
+  },
   game: {
     name: {
       type: String,
