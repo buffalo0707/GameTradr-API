@@ -12,7 +12,6 @@ const index = (req, res, next) => {
   let query = {}
   if (req.query.owner) {
     query = {_owner: req.query.owner}
-    console.log(req.query.owner);
   }
   Listing.find(query)
     .then(listings => res.json({
@@ -22,7 +21,6 @@ const index = (req, res, next) => {
     .catch(next)
 }
 const match = (req, res, next) => {
-  console.log(req.listing.lookingFor);
   Listing.find({
     game: {
       $elemMatch: {
@@ -54,7 +52,6 @@ const create = (req, res, next) => {
   const listing = Object.assign(req.body, {
     _owner: req.user._id
   })
-  console.log(listing);
   Listing.create(listing)
     .then(listing =>
       res.status(201)

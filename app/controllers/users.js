@@ -59,7 +59,6 @@ const signup = (req, res, next) => {
 
 const signin = (req, res, next) => {
   const credentials = req.body
-  console.log(credentials);
   const search = { email: credentials.email }
   User.findOne(search)
     .then(user =>
@@ -80,7 +79,6 @@ const signin = (req, res, next) => {
 }
 
 const signout = (req, res, next) => {
-  console.log(req.headers);
   getToken().then(token =>
     User.findOneAndUpdate({
       _id: req.params.id,

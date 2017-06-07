@@ -8,7 +8,6 @@ const parser = require('xml2json')
 const index = (req, res, next) => {
   getSystems()
   .then((systems) => {
-    console.log(systems);
     const result = parser.toJson(systems)
     res.set('Content-Type', 'application/json');
     res.send(result)

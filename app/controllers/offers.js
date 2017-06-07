@@ -27,7 +27,6 @@ const create = (req, res, next) => {
   const offer = Object.assign(req.body, {
     _owner: req.user._id
   })
-  console.log(offer);
   Offer.create(offer)
     .then(offer =>
       res.status(201)
