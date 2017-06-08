@@ -14,6 +14,9 @@ const index = (req, res, next) => {
   if (req.query.owner) {
     query = {_owner: req.query.owner}
   }
+  if (req.query.status) {
+    query = {status: req.query.status}
+  }
   Listing.find(query)
     .then(listings => res.json({
       listings: listings.map((e) =>
