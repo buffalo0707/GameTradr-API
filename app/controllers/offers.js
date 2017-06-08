@@ -47,7 +47,8 @@ const create = (req, res, next) => {
 }
 const update = (req, res, next) => {
   delete req.body._owner  // disallow owner reassignment.
-  req.offer.update(req.body.offer)
+  console.log(req.offer)
+  req.offer.update(req.body)
     .then(() => res.sendStatus(204))
     .catch(next)
 }
@@ -68,6 +69,5 @@ module.exports = controller({
 }, { before: [
   // { method: setUser, only: ['index', 'show'] },
   { method: authenticate, except: ['index', 'show', 'match'] },
-  { method: setModel(Offer), only: ['show','match'] },
-  { method: setModel(Offer, { forUser: true }), only: ['update', 'destroy'] }
+  { method: setModel(Offer), only: ['show','match', 'update','destroy'] }
 ] })

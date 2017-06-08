@@ -63,7 +63,7 @@ const create = (req, res, next) => {
 }
 const update = (req, res, next) => {
   delete req.body._owner  // disallow owner reassignment.
-  req.listing.update(req.body.listing)
+  req.listing.update(req.listing)
     .then(() => res.sendStatus(204))
     .catch(next)
 }
