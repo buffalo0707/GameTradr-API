@@ -9,7 +9,17 @@ const setUser = require('./concerns/set-current-user')
 const setModel = require('./concerns/set-mongoose-model')
 
 const index = (req, res, next) => {
-  Offer.find({_owner: req.user._id})
+  Offer.find()
+    .then(offers => res.json({
+      offers: offers.map((e) =>
+        e.toJSON({ virtuals: true, user: req.user }))
+    }))
+    .catch(next)
+}
+
+const getListingOffer = (req, res, next) => {
+  console.log('inside Get Listing Offer. id is', req.params.id )
+  Offer.find({_listing: req.params.id})
     .then(offers => res.json({
       offers: offers.map((e) =>
         e.toJSON({ virtuals: true, user: req.user }))
@@ -53,9 +63,10 @@ module.exports = controller({
   show,
   create,
   update,
-  destroy
+  destroy,
+  getListingOffer
 }, { before: [
-  { method: setUser, only: ['index', 'show'] },
+  // { method: setUser, only: ['index', 'show'] },
   { method: authenticate, except: ['index', 'show', 'match'] },
   { method: setModel(Offer), only: ['show','match'] },
   { method: setModel(Offer, { forUser: true }), only: ['update', 'destroy'] }

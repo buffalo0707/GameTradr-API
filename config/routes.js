@@ -15,6 +15,7 @@ module.exports = require('lib/wiring/routes')
 .resources('games', {only: ['index']})
 .resources('platforms', {only: ['index']})
 .resources('offers')
+.get('/offers/listingOffer/:id', 'offers#getListingOffer')
 
 
 // users of the app have special requirements
