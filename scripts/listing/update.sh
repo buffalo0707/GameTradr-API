@@ -12,11 +12,9 @@ curl "${API}${URL_PATH}/${ID}" \
   --header "Content-Type: application/json" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
-    "listing": {
       "game": {
         "name": "'"${NAME}"'",
         "system": "'"${SYSTEM}"'"
-      }
     }
   }'
 

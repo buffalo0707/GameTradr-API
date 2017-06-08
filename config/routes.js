@@ -10,8 +10,6 @@ module.exports = require('lib/wiring/routes')
 // standards RESTful routes
 .resources('examples')
 .resources('listings')
-.resources('trades', { only: ['index', 'show', 'create'] })
-.get('/match/:id', 'listings#match')
 .resources('games', {only: ['index']})
 .resources('platforms', {only: ['index']})
 .resources('offers')

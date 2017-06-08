@@ -2,7 +2,7 @@
 
 API="http://localhost:4741"
 URL_PATH="/sign-up"
-EMAIL='test30@test.com'
+EMAIL='test31@test.com'
 PASSWORD='test'
 
 

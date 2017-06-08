@@ -2,27 +2,29 @@
 
 API="http://localhost:4741"
 URL_PATH="/listings"
-TOKEN="QqN400dQbmOzlJLlN+xNDz4TglfQeR7KsQXny7zBwSc=--iI5jGdc6RGOvW0eQ6/zkHNd2vYQr5/gXcRNJs7PGFWc="
+TOKEN="YcrR1fPcYTbYf+AkqQYAHQIZAIdndmHhJJNbYil0PCY=--+X0NiHY2yKE4+GZ98IHxV5+LvnlEQzzyWNpZpQBeEog="
 NAME="Zelda"
 SYSTEM="Switch"
+ID=10
 NAME2="Halo"
 SYSTEM2="Xbox"
+ID2=10
 curl "${API}${URL_PATH}" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
-    "listing": {
       "game": {
         "name": "'"${NAME}"'",
-        "system": "'"${SYSTEM}"'"
+        "system": "'"${SYSTEM}"'",
+        "id": "'"${ID}"'"
       },
       "wanted": {
         "name": "'"${NAME2}"'",
-        "system": "'"${SYSTEM2}"'"
+        "system": "'"${SYSTEM2}"'",
+        "id": "'"${ID2}"'"
       },
       "status": "active"
-    }
   }'
 echo
