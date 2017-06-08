@@ -2,6 +2,7 @@
 
 const mongoose = require('mongoose')
 
+
 const listingSchema = new mongoose.Schema({
   _owner: {
     type: mongoose.Schema.Types.ObjectId,
@@ -55,5 +56,7 @@ const listingSchema = new mongoose.Schema({
 })
 
 const Listing = mongoose.model('Listing', listingSchema)
+
+
 
 module.exports = Listing

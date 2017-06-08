@@ -3,6 +3,7 @@
 const controller = require('lib/wiring/controller')
 const models = require('app/models')
 const Listing = models.listing
+const Offer = models.offer
 
 const authenticate = require('./concerns/authenticate')
 const setUser = require('./concerns/set-current-user')
@@ -69,6 +70,10 @@ const update = (req, res, next) => {
 
 const destroy = (req, res, next) => {
   req.listing.remove()
+  .then(()=>{
+    Offer.remove({_listing: req.listing.id})
+    .catch(next)
+  })
     .then(() => res.sendStatus(204))
     .catch(next)
 }
