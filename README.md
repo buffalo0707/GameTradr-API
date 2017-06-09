@@ -26,7 +26,7 @@ Install with `npm install`.
 -   [`xml2json`](https://www.npmjs.com/package/xml2json)
 
 ## ERD
-- [`ERD`](https://goo.gl/photos/ZF3E5LSiCTxq38Qf8)
+- [`ERD`](https://goo.gl/photos/VDsCvt8KTHyRx63TA)
 
 ## Structure
 
