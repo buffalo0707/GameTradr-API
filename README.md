@@ -4,6 +4,9 @@
 
 API for use with GameTradr Client
 
+This API is built using Express and Mongo. It includes integration with third party
+API (TheGamesDB - http://wiki.thegamesdb.net/)
+
 ## URLS
 API:
 -Deployed: https://sleepy-dawn-70018.herokuapp.com/

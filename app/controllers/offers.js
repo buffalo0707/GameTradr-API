@@ -23,7 +23,7 @@ const index = (req, res, next) => {
 
 const getListingOffer = (req, res, next) => {
   console.log('inside Get Listing Offer. id is', req.params.id )
-  Offer.find({_listing: req.params.id, status: 'new'})
+  Offer.find({_listing: req.params.id})
     .then(offers => res.json({
       offers: offers.map((e) =>
         e.toJSON({ virtuals: true, user: req.user }))
